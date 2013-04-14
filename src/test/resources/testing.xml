@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Direct Gov Test Suite">
+  <test name="Council Tax Band Tests">
+    <classes>
+      <class name="CTaxBandTest"/>
+    </classes>
+  </test>
+</suite>
