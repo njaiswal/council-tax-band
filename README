@@ -1,0 +1,12 @@
+This sample test code uses following tech:
+- Maven
+- TestNG
+- Selenium
+
+Runs Test cases:
+- On multiple browsers
+- Parallely
+- Takes screenshots on test failure
+- Adds link to screenshot in test reports
+
+Blog entry at: http://clearqa.blogspot.co.uk/2013/04/run-selenium-tests-in-parallel-on.html
