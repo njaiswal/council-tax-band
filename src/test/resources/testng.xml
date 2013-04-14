@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Direct Gov Test Suite" thread-count="2" parallel="tests">
+
+  <test name="Council Tax Band Tests - Firefox">
+    <parameter name="browser_type" value="firefox"/>
+    <classes>
+      <class name="com.clearqa.test.CTaxBandTest"/>
+    </classes>
+  </test>
+
+  <test name="Council Tax Band Tests - Chrome">
+    <parameter name="browser_type" value="chrome"/>
+    <classes>
+      <class name="com.clearqa.test.CTaxBandTest"/>
+    </classes>
+  </test>
+
+</suite>

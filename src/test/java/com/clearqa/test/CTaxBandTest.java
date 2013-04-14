@@ -6,14 +6,16 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 @Listeners({ com.clearqa.test.ScreenShotOnFailure.class })
 public class CTaxBandTest {
 		
   @BeforeClass
-  public void oneTimeSetUp() {
-	  WebDriverManager.startDriver();
+  @Parameters ("browser_type")
+  public void oneTimeSetUp(String browser_type) {
+	  WebDriverManager.startDriver(browser_type);
   }
   
   @AfterClass
@@ -36,5 +38,5 @@ public class CTaxBandTest {
 	  CTaxBandSearch search_page = new CTaxBandSearch(d);
 	  String band = search_page.search(postcode, addr_first_line);
 	  Assert.assertEquals(expected_band, band);
-  }
+  }	
 }
