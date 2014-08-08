@@ -11,32 +11,32 @@ import org.testng.annotations.Test;
 
 @Listeners({ com.clearqa.test.ScreenShotOnFailure.class })
 public class CTaxBandTest {
-		
-  @BeforeClass
-  @Parameters ("browser_type")
-  public void oneTimeSetUp(String browser_type) {
-	  WebDriverManager.startDriver(browser_type);
-  }
+
+	@BeforeClass
+	@Parameters ("browser_type")
+	public void oneTimeSetUp(String browser_type) {
+		WebDriverManager.startDriver(browser_type);
+	}
   
-  @AfterClass
-  public void oneTimeTearDown() {
-	  WebDriverManager.stopDriver();
-  }
+	@AfterClass
+	public void oneTimeTearDown() {
+		WebDriverManager.stopDriver();
+	}
   
-  @DataProvider(name = "dataset1")
-  public Object [][] create_dataset1() {
-	  return new Object[][] {
-			  {"RG5 4NF", "1, Concorde Way", "F"},
-			  {"RG5 4NF", "2, Concorde Way", "C"}
-	  };
-  }
+	@DataProvider(name = "dataset1")
+	public Object [][] create_dataset1() {
+		return new Object[][] {
+			{"RG5 4NF", "1, Concorde Way", "F"},
+			{"RG5 4NF", "2, Concorde Way", "C"}
+		};
+	}
   
-  @Test(dataProvider = "dataset1")
-  public void testCTaxBands(String postcode, String addr_first_line, String expected_band) {
-	  WebDriver d = WebDriverManager.getDriverInstance();
-	  d.get("http://www.voa.gov.uk/cti/InitS.asp");
-	  CTaxBandSearch search_page = new CTaxBandSearch(d);
-	  String band = search_page.search(postcode, addr_first_line);
-	  Assert.assertEquals(expected_band, band);
-  }	
+	@Test(dataProvider = "dataset1")
+	public void testCTaxBands(String postcode, String addr_first_line, String expected_band) {
+		WebDriver d = WebDriverManager.getDriverInstance();
+		d.get("http://www.voa.gov.uk/cti/InitS.asp");
+		CTaxBandSearch search_page = new CTaxBandSearch(d);
+		String band = search_page.search(postcode, addr_first_line);
+		Assert.assertEquals(expected_band, band);
+	}
 }
